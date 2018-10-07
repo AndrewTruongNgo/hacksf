@@ -64,6 +64,12 @@ class CampaignShow extends Component {
         header: manager,
         meta: 'Address of athlete',
         style: { overflowWrap: 'break-word' }
+      },
+      {
+        header: web3.utils.fromWei(balance, 'ether'),
+        meta: 'Athlete\'s Holdings (ether)',
+        description:
+          'The balance is how much money this campaign has left to spend.'
       }
     ];
 
@@ -87,7 +93,7 @@ class CampaignShow extends Component {
         <b style={title}>Lance Smith</b>
         <br />
         <br />
-        <img src="https://www.mercurynews.com/wp-content/uploads/2017/09/bng-l-stfrancis-0902-09.jpg?w=863" height="auto" width="40%"></img>
+        <img src={imageArray[ Math.floor(Math.random() * imageArray.length) ] } height="auto" width="40%"></img>
         <br />
         <table style={tablePlayer}>
           <tbody>
@@ -119,11 +125,6 @@ class CampaignShow extends Component {
           </tbody>
         </table>
         <br />
-        <Link route={`/athletes/${this.props.address}/requests`}>
-          <a>
-            <Button primary>View Requests</Button>
-          </a>
-        </Link>
       </Layout>
     );
   }
