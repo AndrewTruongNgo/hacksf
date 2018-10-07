@@ -1,6 +1,11 @@
 const { createServer } = require('http');
 const next = require('next');
 
+if (process.env === 'development') {
+  console.log('dev***')
+  require.extensions['.jpg'] = () => {}
+}
+
 const app = next({
   dev: process.env.NODE_ENV !== 'production',
   conf: {
