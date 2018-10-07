@@ -14,6 +14,13 @@ const imageArray = [
   'https://image.advance.net/home/adv-hssn-media/width620/img/PennLive.com/news/6674a2fde29f21b75bf7ab6c88617a96/JackShea.jpg'
 ]
 
+const names = [
+  'Marshawn Linn Jr',
+  'Lance Smith',
+  'John Smith',
+  'Alex Reed'
+]
+
 const title =  {
   fontSize: '30px'
 }
@@ -90,7 +97,7 @@ class CampaignShow extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <b style={title}>Lance Smith</b>
+        <b style={title}>{names[ Math.floor(Math.random() * imageArray.length) ] } </b>
         <br />
         <br />
         <img src={imageArray[ Math.floor(Math.random() * imageArray.length) ] } height="auto" width="40%"></img>

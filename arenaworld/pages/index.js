@@ -21,6 +21,13 @@ const imageArray = [
   'https://image.advance.net/home/adv-hssn-media/width620/img/PennLive.com/news/6674a2fde29f21b75bf7ab6c88617a96/JackShea.jpg'
 ]
 
+const names = [
+  'Marshawn Linn Jr',
+  'Lance Smith',
+  'John Smith',
+  'Alex Reed'
+]
+
 class AthleteIndex extends Component {
   static async getInitialProps() {
     let athletes = await factory.methods.getDeployedCampaigns().call();
@@ -50,9 +57,9 @@ class AthleteIndex extends Component {
       );
 
       return {
-        header: name,
+        header: names[ Math.floor(Math.random() * imageArray.length) ],
         meta: address,
-        image: imgSrc,
+        image: imageArray[ Math.floor(Math.random() * imageArray.length) ] ,
         description: (
           [
             <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
