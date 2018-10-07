@@ -4,6 +4,17 @@ import factory from '../ethereum/factory';
 import Layout from '../components/Layout';
 import { Link } from '../routes';
 
+const title = {
+  padding: '10px',
+  fontSize: '30px'
+}
+
+const viewDetail = {
+  paddingLeft: '10px'
+}
+
+
+
 class AthleteIndex extends Component {
   static async getInitialProps() {
     const athletes = await factory.methods.getDeployedCampaigns().call();
@@ -17,10 +28,10 @@ class AthleteIndex extends Component {
         header: address,
         description: (
           [
-            <h3 key="1">Clarence Bo</h3>,
-            <img key="2" src="https://en.wikipedia.org/wiki/Marshawn_Lynch#/media/File:Marshawn_Lynch_Pro_Bowl_2013.jpg" height="42" width="42"/>,
+            <h2 key="1">Clarence Bo</h2>,
+            <img key="2" src="https://www.mercurynews.com/wp-content/uploads/2017/09/bng-l-stfrancis-0902-09.jpg?w=525" height="42" width="42"/>,
             <Link key="3" route={`/athletes/${address}`}>
-              <a>View Details</a>
+              <a style={viewDetail}>View Details</a>
             </Link>
         ]
         ),
@@ -35,7 +46,7 @@ class AthleteIndex extends Component {
     return (
       <Layout>
         <div>
-          <h3>Athletes</h3>
+          <h1 style={title}>Athletes</h1>
 
           <Link route="/athletes/new">
             <a>
