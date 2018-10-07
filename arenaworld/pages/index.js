@@ -5,16 +5,25 @@ import Layout from '../components/Layout';
 import { Link } from '../routes';
 import web3 from '../ethereum/web3';
 
+const title = {
+  padding: '10px',
+  fontSize: '30px'
+}
+
+const viewDetail = {
+  paddingLeft: '10px'
+}
+
+
+
 class AthleteIndex extends Component {
   static async getInitialProps() {
     let athletes = await factory.methods.getDeployedCampaigns().call();
 
-    console.log('athletes', athletes);
-
     athletes = athletes.map( address => {
       return {
         address,
-        name: 'Clarence Bowen',
+        name: 'Marshawn Linn Jr',
         team: 'Team A',
         age: 17,
         wins: 90,
@@ -64,7 +73,7 @@ class AthleteIndex extends Component {
     return (
       <Layout>
         <div>
-          <h3>Athletes</h3>
+          <h1 style={title}>Athletes</h1>
 
           <Link route="/athletes/new">
             <a>
